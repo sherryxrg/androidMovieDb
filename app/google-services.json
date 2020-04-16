@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "295164723585",
+    "firebase_url": "https://labgraphql.firebaseio.com",
+    "project_id": "labgraphql",
+    "storage_bucket": "labgraphql.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295164723585:android:da50a4a653676e73d16880",
+        "android_client_info": {
+          "package_name": "ca.bcit.labgraphql"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295164723585-ulse81be86lfl1fpelpchdu1j954564p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.bcit.labgraphql",
+            "certificate_hash": "7dbe82282d3dd3d245d75889086bd0402132d079"
+          }
+        },
+        {
+          "client_id": "295164723585-c5uplvtcpv54ti3p9prnhjdkq2tjhbbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYMnqiqxBikren83Vt6K_rujiysHncPA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295164723585-c5uplvtcpv54ti3p9prnhjdkq2tjhbbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
