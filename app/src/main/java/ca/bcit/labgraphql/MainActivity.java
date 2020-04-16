@@ -28,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
     Button searchBtn;
     TextView result;
 
-    EditText stName;
-    EditText stNum;
-    Spinner spinnerSet;
+    EditText mvTitle;
+    EditText mvLink;
+    EditText mvDescription;
     Button addBtn;
 
     DatabaseReference dbStudents;
+
+    DatabaseReference dbMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,13 +71,16 @@ public class MainActivity extends AppCompatActivity {
         searchBtn = findViewById(R.id.search_btn);
         result = findViewById(R.id.display_result);
 
-        stName = findViewById(R.id.st_name);
-        stNum = findViewById(R.id.st_num);
-        spinnerSet = findViewById(R.id.set_spinner);
+        mvTitle = findViewById(R.id.mv_title);
+        mvLink = findViewById(R.id.mv_link);
+        mvDescription = findViewById(R.id.description);
         addBtn = findViewById(R.id.add_btn);
 
 
         dbStudents = FirebaseDatabase.getInstance().getReference("students");
+
+        // for movie database
+        dbMovies = FirebaseDatabase.getInstance().getReference("movies");
 
     }
 
@@ -83,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
      * Displays the data corresponding to the student name entered.
      * @param view
      */
-    public void onClickDisplay(View view) {
+    public void findMovie(View view) {
 
         // take studentId to query database
-        String nameToQuery = query.getText().toString().trim();
+        String titleToQuery = query.getText().toString().trim();
 
-        Query query = dbStudents.orderByChild("studentName").equalTo(nameToQuery);
+        Query query = dbMovies.orderByChild("movieTitle").equalTo(titleToQuery);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -100,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
                 result.setText("");
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Student student = snapshot.getValue(Student.class);
-                    if (student != null) {
-                        result.append("Name: " + student.getStudentName() + "\n");
-                        result.append("Serial: " + student.getStudentId() + "\n");
-                        result.append("Set: " + student.getStudentSet());
+                    Movie movie = snapshot.getValue(Movie.class);
+                    if (movie != null) {
+                        result.append("Title: " + movie.getMovieTitle() + "\n");
+                        result.append("Link: " + movie.getMovieLink() + "\n");
+                        result.append("Description: " + movie.getMovieDescription() + "\n");
                     } else {
-                        result.setText("Replicant Not Found.");
+                        result.append("Movie Not Found.");
                     }
                 }
 
@@ -120,28 +125,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     /**
-     * Adds a student to the database.
+     * Adds a movie to the database
      * @param view
      */
-    public void onClickAdd(View view) {
+    public void addMovieItem(View view) {
 
         // input
-        String name = stName.getText().toString().trim();
-        String num = stNum.getText().toString().trim();
-        String set = spinnerSet.getSelectedItem().toString();
+        String title = mvTitle.getText().toString().trim();
+        String link = mvLink.getText().toString().trim();
+        String description = mvDescription.getText().toString().trim();
 
         // write to firebase if name not empty
-        if (!TextUtils.isEmpty(name)) {
+        if (!TextUtils.isEmpty(title)) {
 
-            String id = dbStudents.push().getKey();
-            Student student = new Student(id, name, num, set);
-            dbStudents.child(id).setValue(student);
+            String id = dbMovies.push().getKey();
+            Movie movie = new Movie(title, link, description);
+            dbMovies.child(id).setValue(movie);
 
-            Toast.makeText(this, "Student Added", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Movie Added!", Toast.LENGTH_LONG).show();
 
         } else {
-            Toast.makeText(this, "Please Enter a name", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please Enter a title", Toast.LENGTH_LONG).show();
         }
 
 

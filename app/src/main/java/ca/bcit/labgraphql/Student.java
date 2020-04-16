@@ -11,10 +11,9 @@ public class Student {
 
     }
 
-    public Student(String studentId, String studentName, String studentNum, String studentSet) {
+    public Student(String studentId, String studentName, String studentSet) {
         this.studentId = studentId;
         this.studentName = studentName;
-        this.studentNum = studentNum;
         this.studentSet = studentSet;
     }
 
@@ -24,10 +23,6 @@ public class Student {
 
     public String getStudentName() {
         return studentName;
-    }
-
-    public String getStudentNum() {
-        return studentNum;
     }
 
     public String getStudentSet() {

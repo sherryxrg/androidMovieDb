@@ -31,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:onClick="onClickDisplay"/>
+            android:onClick="findMovie"/>
 
     </LinearLayout>
 
@@ -42,7 +42,7 @@
         <TextView
             android:id="@+id/display_result"
             android:layout_width="match_parent"
-            android:layout_height="500px"
+            android:layout_height="800px"
             android:background="@color/colorPrimary"
             android:textSize="18sp"
             android:fontFamily="monospace"/>
@@ -67,25 +67,31 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/st_name"
-            android:hint="Name"
+            android:id="@+id/mv_title"
+            android:hint="movie title"
             android:layout_weight="4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/st_num"
-            android:hint="ST #"
+            android:id="@+id/mv_link"
+            android:hint="IBDM Link"
             android:layout_weight="4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
-        <Spinner
-            android:id="@+id/set_spinner"
-            android:entries="@array/sets"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/description"
+            android:hint="enter a movie description"
+            android:layout_weight="4"
             android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="100px"/>
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -95,11 +101,11 @@
 
         <Button
             android:id="@+id/add_btn"
-            android:text="Add replicant"
+            android:text="Save Movie"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:onClick="onClickAdd"/>
+            android:onClick="addMovieItem"/>
 
     </LinearLayout>
 
