@@ -42,9 +42,9 @@
         <TextView
             android:id="@+id/display_result"
             android:layout_width="match_parent"
-            android:layout_height="800px"
+            android:layout_height="600px"
             android:background="@color/colorPrimary"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:fontFamily="monospace"/>
 
     </LinearLayout>
