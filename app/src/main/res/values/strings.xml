@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Replicant Database</string>
+    <string name="app_name">Movie Database</string>
     <string-array name="sets">
         <item>3U</item>
         <item>3T</item>

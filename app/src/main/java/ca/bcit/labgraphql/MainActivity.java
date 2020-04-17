@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     EditText mvDescription;
     Button addBtn;
 
-    DatabaseReference dbStudents;
-
     DatabaseReference dbMovies;
 
     @Override
@@ -67,19 +65,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // create handles on elements
-        query = findViewById(R.id.item_edit_text);
-        searchBtn = findViewById(R.id.search_btn);
-        result = findViewById(R.id.display_result);
+//        query = findViewById(R.id.item_edit_text);
+//        searchBtn = findViewById(R.id.search_btn);
+//        result = findViewById(R.id.display_result);
 
         mvTitle = findViewById(R.id.mv_title);
         mvLink = findViewById(R.id.mv_link);
         mvDescription = findViewById(R.id.description);
         addBtn = findViewById(R.id.add_btn);
 
-
-        dbStudents = FirebaseDatabase.getInstance().getReference("students");
-
-        // for movie database
         dbMovies = FirebaseDatabase.getInstance().getReference("movies");
 
     }
